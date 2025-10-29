@@ -1,0 +1,50 @@
+#Import statement
+from Bio.Seq import Seq
+
+#Welcome greetings
+print("Welcome to the DNA to Protein Translator!")
+print("This tool converts DNA sequences into their corresponding protein sequences with the GC content calculation.")
+
+#Asking user for DNA sequence input
+dna_input = ("Enter your DNA sequence (A, T , G, C only)").upper()
+
+#Validating the DNA Sequence
+valid_bases = {'A', 'T', 'G', 'C'}
+
+#Condition to check if the input sequence is valid
+if not set(dna_input).issubset(valid_bases):
+    print("Invalid DNA sequence! Please enter only A, T, G, and C characters.")
+
+#If valid , the next steps are performed
+else:
+ 
+ #Create sequence object
+    dna_seq = Seq(dna_input)
+
+#Transcription of DNA to mRNA
+    mRNA_seq = dna_seq.transcribe()
+
+#Translation of DNA to Protein
+    protein_seq = dna_seq.translate()
+
+#Calcuating GC Content
+    gc_content = 100* (dna_seq.count("G") + dna_seq.count("c"))/ len(dna_seq)
+
+#Displaying results
+    print("\n Results: ")
+    print("DNA sequence: ",dna_seq)
+    print("mRNA sequence:", mRNA_seq)
+    print("Protein sequence:", protein_seq)
+    print("GC content:{:.2f}%".format(gc_content))
+
+#Asking to save results
+    save = input("\n Do you want to save the results to a file? (yes/no): ").lower()
+
+#Saving results to a file if user agrees
+    if save == 'yes':
+        with open("Translational_Results.txt", "w")as file:
+            file.write("DNA sequence:" + str(dna_seq)+ "\n")
+            file.write("mRNA sequence:" + str(mRNA_seq) + "\n")
+            file.write("Protein Sequence:" + str(protein_seq) + "\n")
+            file.write("GC content: {:.2f}%".format(gc_content))
+        print("Results saved to 'Translational_Results.txt'")
