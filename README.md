@@ -29,12 +29,9 @@ pip install biopython
 ## 🚀 Usage
 Run the script:
 
-python dna_translator.py
-
-Enter your DNA sequence when prompted (e.g., ATGGCCATGGCCGATCG)
-
-View results and choose to save to Translational_Results.txt
-
+ * python dna_translator.py
+ * Enter your DNA sequence when prompted (e.g., ATGGCCATGGCCGATCG)
+ * View results and choose to save to Translational_Results.txt
 
 ### Example Output
 
@@ -44,19 +41,27 @@ This tool converts DNA sequences into their corresponding protein sequences with
 
 Enter your DNA sequence (A, T , G, C only): ATGGCC
 
-Results: 
+### Results: 
 DNA sequence:  ATGGCC
+
 mRNA sequence: AUGGCC
+
 Protein sequence: MA
+
 GC content: 50.00%
+
 Do you want to save the results to a file? (yes/no): yes
+
 Results saved to 'Translational_Results.txt'
 
 ## 📁 Output File Format
 
 DNA sequence: ATGGCC
+
 mRNA sequence: AUGGCC
+
 Protein Sequence: MA
+
 GC content: 50.00%
 
 
